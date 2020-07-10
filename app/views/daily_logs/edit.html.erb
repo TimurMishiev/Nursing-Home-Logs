@@ -1,0 +1,27 @@
+<h1> Edit  Daily Log </h1>
+
+<% if @daily_logs.errors.any? %>
+  <h2> The following errors prevented the daily log from being saved</h2>
+  <ul>
+    <% @daily_logs.errors.full_messages.each do |msg| %>
+      <li><%= msg %></li>
+    <% end %>
+    </ul>
+<% end %>
+
+<%= form_with (model: @daily_log, local: true ) local: true do |f| %>
+
+  <p>
+  <%= f.label :shift %><br/>
+  <%= f.text_field :shift %>
+  </p>
+
+  <p>
+  <%= f.label :notes %><br/>
+  <%= f.text_area :notes %>
+  </p>
+
+  <p>
+  <%= f.submit %>
+  </p>
+  <% end %>
