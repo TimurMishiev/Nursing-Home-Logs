@@ -1,7 +1,8 @@
 class DailyLogsController < ApplicationController
+    before_action :set_daily_log, only: [:show, :edit, :update, :destroy]
 
   def show
-    @daily_log = DailyLog.find(params[:id])
+    #calls the private mathod
   end 
 
   def index
@@ -13,11 +14,11 @@ class DailyLogsController < ApplicationController
   end 
 
   def edit
-    @daily_log = DailyLog.find(params[:id])
+    #calls the private method
   end 
 
   def create
-    @daily_log = DailyLog.new(params.require(:daily_log).permit(:shift, :notes))
+    @daily_log = DailyLog.new(daily_log_params) #calls the private methos
     if  @daily_log.save 
       flash[:notice] = "notes were created successfully."
     redirect_to daily_log_path(@daily_log) #extracts daily_log's id 
@@ -27,8 +28,8 @@ class DailyLogsController < ApplicationController
   end 
 
   def update
-    @daily_log = DailyLog.find(params[:id])
-    if @daily_log.update(params.require(:daily_log).permit(:shift, :notes))
+  
+    if @daily_log.update(daily_log_params) #calls a private method
       flash[:notice] = "The Daily Log was updated succesfully"
       redirect_to daily_log_path(@daily_log)
     else 
@@ -37,9 +38,19 @@ class DailyLogsController < ApplicationController
   end 
 
   def destroy
-    @daily_log = DailyLog.find(params[:id])
+     #calls the private method (set_daily_log)
     @daily_log.destroy
     redirect_to daily_log_path
+  end 
+
+  private
+
+  def set_daily_log
+    @daily_log = DailyLog.find(params[:id])
+  end 
+
+  def daily_log_params
+    params.require(:daily_log).permit(:shift, :notes)
   end 
   
 end 
