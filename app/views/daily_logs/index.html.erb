@@ -1,0 +1,22 @@
+<h1>Log listing page </h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Shift </th>
+      <th>Notes</th>
+      <th>Action</th>
+    </tr>
+  <thead>
+
+  <tbody>
+    <%= @daily_logs.each do |daily_log| %>
+      <tr>
+        <td><%= daily_log.shift %></td>
+        <td><%= daily_log.notes %></td>
+        <td>Placeholder</td>
+      <tr>
+    <% end %>
+  </tbody>
+</table>
+

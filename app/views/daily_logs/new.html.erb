@@ -1,0 +1,16 @@
+<h1> create a new log </h1>
+
+<%= form_with scope: :dailylog, url :daily_logs_path, local: true do |f| %>
+  <p>
+  <%= f.lable :shift %><br/>
+  <%= f.text_field :shift %>
+  </p>
+
+  <p>
+    <%= f.lable :notes %><br/>
+    <%= f.text_area :notes %>
+  </p>
+  <p>
+    <%= f.submit %>
+  </p>
+  <% end %>
