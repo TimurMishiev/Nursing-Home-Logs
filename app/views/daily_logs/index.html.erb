@@ -7,15 +7,15 @@
       <th>Notes</th>
       <th>Action</th>
     </tr>
-  <thead>
+  </thead>
 
   <tbody>
-    <%= @daily_logs.each do |daily_log| %>
+    <%= @daily_logs.each do |dlog| %>
       <tr>
-        <td><%= daily_log.shift %></td>
-        <td><%= daily_log.notes %></td>
+        <td><%= dlog.shift %></td>
+        <td><%= dlog.notes %></td>
         <td>Placeholder</td>
-      <tr>
+      </tr>
     <% end %>
   </tbody>
 </table>
