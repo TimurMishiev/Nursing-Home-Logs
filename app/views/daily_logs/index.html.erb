@@ -10,10 +10,10 @@
   </thead>
 
   <tbody>
-    <%= @daily_logs.each do |dlog| %>
+    <% @daily_logs.each do |log| %>
       <tr>
-        <td><%= dlog.shift %></td>
-        <td><%= dlog.notes %></td>
+        <td><%= log.shift %></td>
+        <td><%= log.notes %></td>
         <td>Placeholder</td>
       </tr>
     <% end %>
