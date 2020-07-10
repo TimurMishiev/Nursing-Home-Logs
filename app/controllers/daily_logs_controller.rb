@@ -35,6 +35,12 @@ class DailyLogsController < ApplicationController
       render 'edit'
     end 
   end 
+
+  def destroy
+    @daily_log = DailyLog.find(params[:id])
+    @daily_log.destroy
+    redirect_to daily_log_path
+  end 
   
 end 
 
