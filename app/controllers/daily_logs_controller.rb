@@ -2,7 +2,7 @@ class DailyLogsController < ApplicationController
     before_action :set_daily_log, only: [:show, :edit, :update, :destroy]
 
   def show
-    #calls the private mathod
+    #calls the private method
   end 
 
   def index
