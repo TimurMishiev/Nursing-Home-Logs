@@ -19,7 +19,7 @@ class DailyLogsController < ApplicationController
 
   def create
     @daily_log = DailyLog.new(daily_log_params) #calls the private method
-    @article.user = User.first
+    @daily_log.user = User.first
 
     if  @daily_log.save 
       flash[:notice] = "notes were created successfully."
