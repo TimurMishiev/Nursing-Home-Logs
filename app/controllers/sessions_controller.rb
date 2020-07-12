@@ -1,6 +1,7 @@
 class SessionsController < ApplicationController
 
   def new
+
   end 
 
   def create
@@ -13,13 +14,12 @@ class SessionsController < ApplicationController
     else
       flash.now[:alert] = "There was something wrong with your login details"
       render 'new' #we are displaying a new form over again, and not redirecting.
-
     end 
   end 
 
   def destroy
-    session [:user_id] = nil
-    flash [:notice] = "Logged out"
+    session[:user_id] = nil
+    flash[:notice] = "Logged out"
     redirect_to root_path
   end 
 
