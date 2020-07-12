@@ -1,25 +1,27 @@
 <h2 class="text-center mt-4"><%= @daily_log.shift %></h2>
 
-  <div class="container">
-    <div class="row justify-content-md-center">
-      <div class="col-8 mt-4">
-        <div class="card text-center bg-white rounded">
-          <div class="card-header font-italic">
-
-            by Timur Mishiev
+<div class="container">
+  <div class="row justify-content-md-center">
+    <div class="col-8 mt-4">
+      <div class="card text-center bg-white rounded">
+        
+      <div class="card-header font-italic">
+          by Timur Mishiev
+        </div>
+         
+        <div class="card-body"> 
+          <div class="card-text text-left"><%= simple_format(@daily_log.notes) %>
           </div>
-            <div class="card-body"> 
-              <div class="card-text text-left"><%= simple_format(@daily_log.notes) %>
-              </div>
+
               <%= link_to "Edit", edit_daily_log_path(@daily_log), class: "btn btn-info" %>
 
               <%= link_to "Delete", daily_log_path(@daily_log), class: "btn btn-danger", method: :delete, data: {confirm: "Are you sure?"} %>
-              </div>
-              <div class="card-footer text-muted">
-                <small>  Created </small>
-              </div>
         </div>
-      </div>
+        <div class="card-footer text-muted">
+          <small>  Created </small>
+            
     </div>
-  </div> 
+  </div>
+</div>
+  
 
