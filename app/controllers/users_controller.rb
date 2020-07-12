@@ -4,6 +4,11 @@ class UsersController < ApplicationController
     @user = User.new
   end 
 
+  def show
+    @user = User.find(params[:id])
+    @daily_logs = @user.daily_logs
+  end 
+
   def edit 
     @user = User.find(params[:id])
   end 
@@ -11,7 +16,11 @@ class UsersController < ApplicationController
   def update
     @user = User.find(params[:id])
     if @user.update(user_params)
-
+      flash[:notice] = 'You have updated you information!'
+      redirect_to daily_logs_path
+    else
+      render 'edit'
+    end 
   end 
 
   def create
