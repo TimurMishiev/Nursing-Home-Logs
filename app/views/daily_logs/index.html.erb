@@ -13,17 +13,20 @@
 
               
                 
-                  <h5 class="card-title">Shift: <%= link_to log.shift, daily_log_path(log), class: "text-success" %></td></h5>
+                  <h5 class="card-title">Shift: <%= link_to log.shift, daily_log_path(log) %></td></h5>
                   
                   <p class="card-text"><%= truncate(log.notes, length: 100) %>
                   </p>
                   
-                  <%= link_to "View",  daily_log_path(log), class: "btn btn-outline-primary" %>
+                  <%= link_to "View",  daily_log_path(log), class: "btn btn-primary" %>
 
-                  <%= link_to "Edit", edit_daily_log_path(log), class: "btn btn-outline-info" %>
+                  <%= link_to "Edit", edit_daily_log_path(log), class: "btn btn-info" %>
 
-                  <%= link_to "Delete", daily_log_path(log), class: "btn btn-outline-danger", method: :delete, data: {confirm: "Are you sure?"} %>
+                  <%= link_to "Delete", daily_log_path(log), class: "btn btn-danger", method: :delete, data: {confirm: "Are you sure?"} %>
                 </div>
+                  <div class="card-footer text-muted">
+                    created date
+                  </div>
               </div>
           </div>
         </div>
