@@ -6,7 +6,7 @@
       <div class="card text-center bg-white rounded">
         
       <div class="card-header font-italic">
-          by Timur Mishiev
+          by <%= @daily_log.user.username if @daily_log.user %>
         </div>
          
         <div class="card-body"> 
