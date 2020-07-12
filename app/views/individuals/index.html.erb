@@ -1,12 +1,12 @@
-<h1 class="text-center mt-4">Our Staff</h1>
+<h1 class="text-center mt-4">Individuals</h1>
 
 <div class="container">
-      <% @users.each do |user| %>
+      <% @individuals.each do |indiv| %>
         <div class="row justify-content-md-center">
           <div class="col-8 mt-4">
           <div class="card text-center bg-white rounded">
             <div class="card-header font-italic">
-               <%= link_to user.username, user_path(user)  %>
+               <%= link_to individual.name, indivudual_path(indiv)  %>
             </div>
                <div class="card-body">
 
@@ -14,7 +14,7 @@
                 
                   <h5 class="card-title">Shift: </td></h5>
                   
-                  <p class="card-text"><%= user.daily_logs.count %>
+                  <p class="card-text"><%= user.activity_logs.count %>
                   </p>
                   
                   <%= link_to "View Vitals",  user, class: "btn btn-primary" %>
