@@ -1,8 +1,8 @@
-<% if @daily_log.errors.any? %>
+<% if obj.errors.any? %>
   <div class="alert alert-danger alert-dismissible fade show" role="alert">
     <h4 class="alert-heading">The following error prevented notes from being saved</h4>
     <ul>
-      <% @daily_log.errors.full_messages.each do |msg| %>
+      <% object.errors.full_messages.each do |msg| %>
         <li><%= msg %></li>
       <% end %>
     </ul>
