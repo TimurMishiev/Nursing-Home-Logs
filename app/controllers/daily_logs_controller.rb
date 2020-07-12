@@ -18,7 +18,9 @@ class DailyLogsController < ApplicationController
   end 
 
   def create
-    @daily_log = DailyLog.new(daily_log_params) #calls the private methos
+    @daily_log = DailyLog.new(daily_log_params) #calls the private method
+    @article.user = User.first
+
     if  @daily_log.save 
       flash[:notice] = "notes were created successfully."
     redirect_to daily_log_path(@daily_log) #extracts daily_log's id 
