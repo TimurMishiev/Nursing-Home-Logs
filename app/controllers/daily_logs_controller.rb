@@ -1,6 +1,7 @@
 class DailyLogsController < ApplicationController
     before_action :set_daily_log, only: [:show, :edit, :update, :destroy]
     before_action :require_user, except: [:show, :index]
+    before_action :require_same_user, only: [:edit, :update, :destroy]
 
   def show
     #calls the private method
@@ -43,7 +44,7 @@ class DailyLogsController < ApplicationController
   def destroy
      #calls the private method (set_daily_log)
     @daily_log.destroy
-    redirect_to daily_log_path
+    redirect_to daily_logs_path
   end 
 
   private
