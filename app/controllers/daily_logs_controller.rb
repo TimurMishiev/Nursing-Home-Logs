@@ -58,7 +58,7 @@ class DailyLogsController < ApplicationController
   end 
 
   def require_same_user
-    if current_user != @daily_log.user
+    if current_user != @daily_log.user && !current_user.admin? 
       flash[:alert] = "You can only edit or delete you own notes."
       redirect_to @daily_log
     end 

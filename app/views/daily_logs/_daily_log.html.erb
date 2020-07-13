@@ -16,12 +16,14 @@
                   </p>
                   
                   <%= link_to "View",  daily_log_path(log), class: "btn btn-primary" %>
-                <% if logged_in? && log.user == current_user %>
+                <% if logged_in? && (log.user == current_user || current_user.admin?) %>
+
                     <%= link_to "Edit", edit_daily_log_path(log), class: "btn btn-info" %>
 
                     <%= link_to "Delete", daily_log_path(log), class: "btn btn-danger", method: :delete, data: {confirm: "Are you sure?"} %>
                   <% end %>
                 </div>
+                
                   <div class="card-footer text-muted">
                     created date
                   </div>

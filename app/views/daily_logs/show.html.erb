@@ -12,12 +12,13 @@
         <div class="card-body"> 
           <div class="card-text text-left"><%= simple_format(@daily_log.notes) %>
           </div>
-          <% if logged_in? && @daily_log.user == current_user %>
+          <% if logged_in? && (@daily_log.user == current_user ||current_user.admin?) %>
               <%= link_to "Edit", edit_daily_log_path(@daily_log), class: "btn btn-info" %>
 
               <%= link_to "Delete", daily_log_path(@daily_log), class: "btn btn-danger", method: :delete, data: {confirm: "Are you sure?"} %>
           <% end %>
         </div>
+
         <div class="card-footer text-muted">
           <small>  Created </small>
             
