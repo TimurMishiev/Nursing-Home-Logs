@@ -10,4 +10,10 @@ Rails.application.routes.draw do
   post 'login', to: 'sessions#create'
   delete 'logout', to: 'sessions#destroy'
 
+  resources :individuals, except: [:destroy]
+
+  resources :daily_activities, except: [:destroy]
+
+
+
 end
