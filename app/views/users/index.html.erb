@@ -23,8 +23,11 @@
 
                   <%= link_to "View Profile",  user, class: "btn btn-success" %>
 
-                  <%= link_to "Edit profile", edit_user_path(user), class: "btn btn-info" %>
+                  <% if logged_in? and user == current_user %>
+                  
 
+                  <%= link_to "Edit profile", edit_user_path(user), class: "btn btn-info" %>
+                  <% end %>
                   
                 </div>
 
