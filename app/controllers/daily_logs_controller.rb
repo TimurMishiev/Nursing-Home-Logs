@@ -1,5 +1,6 @@
 class DailyLogsController < ApplicationController
     before_action :set_daily_log, only: [:show, :edit, :update, :destroy]
+    before_action :require_user, except: [:show, :index]
 
   def show
     #calls the private method
@@ -53,6 +54,13 @@ class DailyLogsController < ApplicationController
 
   def daily_log_params
     params.require(:daily_log).permit(:shift, :notes)
+  end 
+
+  def require_same_user
+    if current_user != @daily_log.user
+      flash[:alert] = "You can only edit or delete you own notes."
+      redirect_to @daily_log
+    end 
   end 
   
 end 
