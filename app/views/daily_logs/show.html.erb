@@ -7,8 +7,13 @@
         
       <div class="card-header font-italic">
           by <%= @daily_log.user.username if @daily_log.user %>
+          
+         <% if @daily_log.individuals.any? %>
+         <div class="mt-2"><%= render @daily_log.individuals %></div>
+        <% end %> 
+          
         </div>
-         
+
         <div class="card-body"> 
           <div class="card-text text-left"><%= simple_format(@daily_log.notes) %>
           </div>

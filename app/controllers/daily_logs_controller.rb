@@ -54,7 +54,7 @@ class DailyLogsController < ApplicationController
   end 
 
   def daily_log_params
-    params.require(:daily_log).permit(:shift, :notes)
+    params.require(:daily_log).permit(:shift, :notes, individual_ids: [])#
   end 
 
   def require_same_user
