@@ -20,6 +20,7 @@ class DailyLogsController < ApplicationController
   end 
 
   def create
+  
     @daily_log = DailyLog.new(daily_log_params) #calls the private method
     @daily_log.user = current_user
 
@@ -54,7 +55,7 @@ class DailyLogsController < ApplicationController
   end 
 
   def daily_log_params
-    params.require(:daily_log).permit(:shift, :notes, individual_ids: [],daily_activity_ids: [])
+    params.require(:daily_log).permit(:shift, :notes, individual_ids: [1])
   end 
 
   def require_same_user

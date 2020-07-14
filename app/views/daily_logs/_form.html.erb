@@ -9,7 +9,7 @@
         <%= form_with(model: @daily_log, class: "shadow p-3 mb-3 bg-light rounded", local: true ) do |f| %>
           <div class="form-group row"
           <p>
-            <%= f.label :shift, class: "col-2 col-form-label" %>
+            <%= f.label :Shift, class: "col-2 col-form-label" %>
             <div class="col-10">
               <%= f.text_field :shift, class: "form-control shadow rounded", placeholder: "Shift:"  %>
             </div>
@@ -22,12 +22,7 @@
             </div>
           </div>
 
-          <div class="form-group row">
-            <%= f.label :Activity, class: "col-2 col-form-label" %>
-            <div class="col-10">
-              <%= f.collection_select(:daily_activity_ids, DailyActivity.all, :id, :title) %>
-            </div>
-          </div>
+          
           
 
           <div class="form-group row">
