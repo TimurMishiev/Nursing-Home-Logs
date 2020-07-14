@@ -30,6 +30,25 @@
               <a class="dropdown-item" href="#">Something else here</a>
             </div>
           </li>
+
+          <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            Individuals
+          </a>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <% if logged_in? && current_user.admin?  %>
+            
+            <%= link_to "Add a new Individual", new_individual_log_path, class: "dropdown-item" %>
+          <% end %>
+
+            <%= link_to "View Individuals", individuals_path, class: "dropdown-item" %>
+
+
+            
+            <div class="dropdown-divider"></div>
+            <a class="dropdown-item" href="#">Something else here</a>
+          </div>
+        </li>
          
           <% if logged_in? %>
 

@@ -1,2 +1,21 @@
 <h1 class="text-center mt-4">Individuals</h1>
 
+<div class="container">
+      <% @individuals.each do |individual| %>
+        <div class="row justify-content-md-center">
+          <div class="col-5 mt-4">
+            <div class="card text-center bg-white rounded">
+              <div class="card-body">
+                <h5 class="card-title">Name: <%= link_to individual.name, individual_path(individual) %></td></h5>
+                  <p class="card-text"><%= truncate(individual.bio, length: 100) %>
+                  </p>
+                  <%= link_to "View",  individual_path(individual), class: "btn btn-primary" %>
+                </div>
+                <div class="card-footer text-muted">
+                    created date
+                </div>
+              </div>
+            </div>
+        </div>
+       <% end %> 
+ </div> 

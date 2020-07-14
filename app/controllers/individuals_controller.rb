@@ -1,5 +1,5 @@
 class IndividualsController < ApplicationController
-
+   before_action :require_admin, except: [:index, :show]
   def new
     @individual = Individual.new
 
@@ -16,7 +16,7 @@ class IndividualsController < ApplicationController
   end 
 
   def index
-    
+    @individuals = Individual.all
   end 
 
   def show
@@ -27,6 +27,13 @@ class IndividualsController < ApplicationController
 
   def individual_params
     params.require(:individual).permit(:name, :bio)
+  end 
+
+  def require_admin
+    if !(logged_in? && current_user.admin?)
+      flash[:alert] = "Only the manager of Our Home can perform this action"
+      redirect_to individuals_path
+    end 
   end 
   
 end 
