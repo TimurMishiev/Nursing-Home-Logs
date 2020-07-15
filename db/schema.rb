@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_07_15_014645) do
+ActiveRecord::Schema.define(version: 2020_07_15_220735) do
 
   create_table "daily_activities", force: :cascade do |t|
     t.string "title"
@@ -22,6 +22,8 @@ ActiveRecord::Schema.define(version: 2020_07_15_014645) do
     t.string "notes"
     t.integer "user_id"
     t.integer "individual_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "individuals", force: :cascade do |t|
@@ -33,6 +35,19 @@ ActiveRecord::Schema.define(version: 2020_07_15_014645) do
     t.string "username"
     t.string "password_digest"
     t.boolean "admin", default: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.string "from"
+    t.string "worked_to"
+  end
+
+  create_table "vitals_table_for_individuals", force: :cascade do |t|
+    t.string "temperature"
+    t.string "blood_pressure"
+    t.string "pulse"
+    t.integer "individual_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
 end
