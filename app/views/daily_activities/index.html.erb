@@ -1,18 +1,11 @@
-<h1 class="text-left ml-4 mt-4">All Daily Activities</h1>
-  <div class="container">
+<h1/> All Daily Activities</h1>
+  
     <% @daily_activities.each do |activity| %>
-    <div class="row justify-content-md-left">
-      <div class="col-4 mt-4">
-        <div class="card text-left bg-white rounded">
-          <div class="card-body">
-            <h5 class="card-title">Daily Activity: <%= link_to activity.title, daily_activity_path(activity) %></td></h5>
-            <p class="card-text"><%= truncate(activity.description, length: 100) %></p>
-          </div>
-          <div class="card-footer text-muted">
-              created date
-          </div>
-        </div>
-      </div>
-    </div>
+    
+  
+            <h5>Daily Activity: <%= link_to activity.title, daily_activity_path(activity) %></td></h5>
+            <p><%= truncate(activity.description, length: 100) %></p>
+         
+       
     <% end %> 
-  </div> 
+ 

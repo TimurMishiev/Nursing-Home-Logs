@@ -1,9 +1,9 @@
-<h1 class="text-center mt-4"><%= @user.username%></h1>
+<h1><%= @user.username%></h1>
 
-<div class="text-center m-4">
+
 <%= link_to "Edit your profile", edit_user_path(@user), class:"btn btn-outline-primary" %>
-</div>
 
-<h3 class="text-center mt-4">Notes</h3>
+
+<h3>Notes</h3>
 
 <%= render 'daily_logs/daily_log' %>
