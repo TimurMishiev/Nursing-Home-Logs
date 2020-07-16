@@ -13,7 +13,7 @@ Rails.application.routes.draw do
 
   resources :individual_vitals_logs
   resources :individuals, except: [:destroy]  do 
-    resources :individual_vitals_logs, only: [:new, :index, :show]
+    resources :individual_vitals_logs #only: [:new, :index, :show]
   end 
 
   
