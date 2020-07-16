@@ -1,0 +1,7 @@
+<h1> Vital Logs </h1>
+<ul>
+<% @individual_vitals_logs.each do |v| %>
+  <li><%= v.temperature %> - <%= v.bloodpressure %> -
+  <%= v.pulse %></li>
+<% end %>
+</ul>

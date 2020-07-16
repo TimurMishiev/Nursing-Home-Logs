@@ -20,7 +20,7 @@ class IndividualVitalsLogsController < ApplicationController
   end 
 
   def index
-
+    @individual_vitals_logs = IndividualVitalsLog.all
   end 
 
 
