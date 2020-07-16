@@ -1,17 +1,23 @@
-<%= form_for(@vitals_log) do |f| %>
-<div>
-<%= f.label :temperature %>
-<%= f.text_field :temperature %>
-</div>
-<div>
-<%= f.label :b/p %>
-<%= f.text_field :bloodpressure %>
-</div>
+<h1> Fill out Vitals Log for: </h1> 
+<p><%= @vitals_log.individual.name %></p>
 
-<div>
-<%= f.label :pulse %>
-<%= f.text_field :pulse %>
-</div>
+<%= form_for(@vitals_log) do |f| %>
+  <br>
+  <div>
+    <%= f.label :temperature %>
+    <%= f.text_field :temperature %>
+  </div>
+  <br>
+  <div>
+    <%= f.label :bloodpressure %>
+    <%= f.text_field :bloodpressure %>
+  </div>
+  <br>
+  <div>
+    <%= f.label :pulse %>
+    <%= f.text_field :pulse %>
+  </div>
+  <br>
 <%= f.hidden_field :individual_id %>
 <%= f.submit %>
 
