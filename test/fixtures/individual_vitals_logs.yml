@@ -1,0 +1,13 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  temperature: MyString
+  bloodpressure: MyString
+  pulse: MyString
+  individual_id: 1
+
+two:
+  temperature: MyString
+  bloodpressure: MyString
+  pulse: MyString
+  individual_id: 1

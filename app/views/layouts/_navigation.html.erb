@@ -17,18 +17,13 @@
               Daily Logs
             </a>
             <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-            <% if logged_in? %>
+            <% if logged_in? && current_user.admin? %>
               
               <%= link_to "Add Notes", new_daily_log_path, class: "dropdown-item" %>
             <% end %>
 
               <%= link_to "View Daily Logs", daily_logs_path, class: "dropdown-item" %>
-
-
-              <a class="dropdown-item" href="#">Another action</a>
-              <div class="dropdown-divider"></div>
-              <a class="dropdown-item" href="#">Something else here</a>
-            </div>
+             
           </li>
 
           <li class="nav-item dropdown">
@@ -42,12 +37,12 @@
           <% end %>
 
             <%= link_to "View Individuals", individuals_path, class: "dropdown-item" %>
-
-
             
-            <div class="dropdown-divider"></div>
-            <a class="dropdown-item" href="#">Something else here</a>
-          </div>
+            <% if logged_in? %>
+            <%= link_to "Vitals Logs", individuals_path, class: "dropdown-item" %>
+            <% end %>
+
+
         </li>
 
         <li class="nav-item dropdown">

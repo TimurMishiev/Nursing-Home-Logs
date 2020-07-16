@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_07_15_220735) do
+ActiveRecord::Schema.define(version: 2020_07_16_001717) do
 
   create_table "daily_activities", force: :cascade do |t|
     t.string "title"
@@ -24,6 +24,15 @@ ActiveRecord::Schema.define(version: 2020_07_15_220735) do
     t.integer "individual_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+  end
+
+  create_table "individual_vitals_logs", force: :cascade do |t|
+    t.string "temperature"
+    t.string "bloodpressure"
+    t.string "pulse"
+    t.integer "individual_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
   end
 
   create_table "individuals", force: :cascade do |t|
@@ -46,8 +55,6 @@ ActiveRecord::Schema.define(version: 2020_07_15_220735) do
     t.string "blood_pressure"
     t.string "pulse"
     t.integer "individual_id"
-    t.datetime "created_at"
-    t.datetime "updated_at"
   end
 
 end

@@ -1,36 +1,29 @@
-<h1>Our Staff</h1>
+<div class="container">
+<div class="row justify-content-center">
+    <div class="col-10">    
+     <h1>Our Staff</h1>
 
-
-      <% @users.each do |user| %>
-      
-               <%= link_to user.username, user_path(user)  %>
-        
-            
-
-              
-                
-                  <h5 class="card-title">Shift: </td></h5>
+          <% @users.each do |user| %>
+            <%= link_to user.username, user_path(user)  %>
+              <h5 class="card-title">Shift: </td></h5>
+                  <p><%= user.daily_logs.count %></p>
                   
-                  <p><%= user.daily_logs.count %>
-                  </p>
-                  
-                  <%= link_to "View Vitals",  user, class: "btn btn-primary" %>
-
                   <%= link_to "View Hours Worked",  user, class: "btn btn-primary" %>
 
                   <%= link_to "View Profile",  user, class: "btn btn-primary" %>
 
                 <% if logged_in? %>
                     <% if user == current_user %>
-                  
-
                       <%= link_to "Edit profile", edit_user_path(user), class: "btn btn-primary" %>
-                    <% end %>
+                <% end %>
 
-                    <% if current_user.admin? %>
+                 <% if current_user.admin? %>
                       <%= link_to "Delete user", user_path(user), class: "btn btn-outline-danger", method: :delete,
                       data: {confirm: "Are you sure you want to delete the user account?"} %>
-                    <% end %>
+                  <% end %>
                 <% end %>
        <% end %> 
+    </div>
+   </div>
+<div>
  

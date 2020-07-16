@@ -1,0 +1,2 @@
+module IndividualVitalsLogsHelper
+end

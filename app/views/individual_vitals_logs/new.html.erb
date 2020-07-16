@@ -1,0 +1,18 @@
+<%= form_for(@vitals_log) do |f| %>
+<div>
+<%= f.label :temperature %>
+<%= f.text_field :temperature %>
+</div>
+<div>
+<%= f.label :b/p %>
+<%= f.text_field :bloodpressure %>
+</div>
+
+<div>
+<%= f.label :pulse %>
+<%= f.text_field :pulse %>
+</div>
+<%= f.hidden_field :individual_id %>
+<%= f.submit %>
+
+<% end  %>

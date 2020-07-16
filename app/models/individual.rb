@@ -3,5 +3,7 @@ class Individual < ApplicationRecord
   validates :bio, presence: true
  
 has_many :daily_logs
+
+has_many :individual_vitals_logs
  
 end 
