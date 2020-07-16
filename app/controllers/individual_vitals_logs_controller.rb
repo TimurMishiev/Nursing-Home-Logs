@@ -12,7 +12,7 @@ end
   def create
     @individual_vitals_log = IndividualVitalsLog.new(individual_vitals_log_params)
     if @individual_vitals_log.save
-    redirect_to individual_vitals_logs_path(@individual_vitals_log)
+    redirect_to individual_individual_vitals_logs_path(@individual_vitals_log)
     else
       render :new
     end
