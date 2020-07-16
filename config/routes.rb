@@ -6,10 +6,13 @@ Rails.application.routes.draw do
   resources :daily_logs
   get 'signup', to: 'users#new' 
 
+
   resources :users, except: [:new] 
   get 'login', to: 'sessions#new'
   post 'login', to: 'sessions#create'
   delete 'logout', to: 'sessions#destroy'
+
+  get '/auth/google_oauth2/callback' => 'sessions#omniauth'
 
   resources :individual_vitals_logs
   resources :individuals, except: [:destroy]  do 

@@ -5,6 +5,8 @@ class SessionsController < ApplicationController
   end 
 
   def create
+
+
     user = User.find_by(username: params[:session][:username])
     if user && user.authenticate(params[:session][:password])
       session[:user_id] = user.id
@@ -21,6 +23,17 @@ class SessionsController < ApplicationController
     session[:user_id] = nil
     flash[:notice] = "Logged out"
     redirect_to root_path
+  end 
+
+  def omniauth
+    byebug
+
+    User.find_or_create_by(email: auth[:info][:email])
+    User.where(email: auth[:info][:email]).first_or_initialize
+  end 
+
+  def auth
+    request.env['omniauth.auth']
   end 
 
 end 
