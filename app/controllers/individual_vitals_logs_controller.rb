@@ -1,9 +1,12 @@
 class IndividualVitalsLogsController < ApplicationController
   
   def new
-    @individual = Individual.find_by_id(params[:individual_id])
+   if @individual = Individual.find_by_id(params[:individual_id])
     @individual_vitals_log = @individual.individual_vitals_logs.build
-  end 
+  else
+    @individual_vitals_log = IndividualVitalsLog.new
+  end
+end 
 
 
   def create
