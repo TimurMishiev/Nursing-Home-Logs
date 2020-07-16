@@ -1,8 +1,8 @@
 <h1> Fill out Vitals Log for: </h1> 
-<p><%= @vitals_log.individual.name %></p>
+<p><%= @individual_vitals_log.individual.name %></p>
 
-<%= form_for(@vitals_log) do |f| %>
-  <br>
+<%= form_for(@individual_vitals_log) do |f| %>
+  </br>
   <div>
     <%= f.label :temperature %>
     <%= f.text_field :temperature %>
