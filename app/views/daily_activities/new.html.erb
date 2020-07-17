@@ -1,20 +1,4 @@
-<h1>Create a new Daily Activity</h1>
-  
-       <%= form_with(model: @daily_activity, local: true ) do |f| %>
-         
-        
-            <%= f.label :title %>
-            <%= f.text_field :title,  placeholder: "enter a title"  %>
-           
-     
-            <%= f.label :description %>
-            
-                <%= f.text_field :description, rows: 5, placeholder: "create a description"  %>
-              
-        
-          
-            <%= f.submit class: "btn btn-outline-primary btn-lg" %>
-     
-        <% end %>
-     
-  
+<h1 class="text-center mt-4">Create a new Daily Activity</h1>
+<%= render 'form' %>
+
+   

@@ -1,7 +1,16 @@
-<h1> Individual: <%= @individual.name %></h1>
-<br/>
-<h2> Biography:<p> <%= @individual.bio %></p></h2>
-<p>
-<%= link_to "Enter Vitals",  new_individual_individual_vitals_log_path(@individual), class: "btn btn-primary" %></p>
-
+<h2 class="text-center mt-4"><%= @individual.name %></h2>
+  <div class="container">
+    <div class="row justify-content-md-center">
+      <div class="col-6 mt-4">
+        <div class="card text-center  mb-4 bg-white rounded">
+          <div class="card-body">
+            <div class="card-text text-center"><%= simple_format(@individual.bio) %></div>
+            <% if logged_in? %>
+              <%= link_to "Enter Vitals",  new_individual_individual_vitals_log_path(@individual), class: "btn btn-primary" %>
+            <% end %> 
+          <div>
+        </div>    
+      </div> 
+    </div>   
+  </div>         
 
