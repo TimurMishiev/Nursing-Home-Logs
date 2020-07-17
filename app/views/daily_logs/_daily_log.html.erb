@@ -4,7 +4,9 @@
     <div class="col-6 mt-4">
     <div class="card text-center  mb-4 bg-white rounded">
 
-            by <%= log.user.username if log.user %>
+    <% if log.user %>
+    by <%= link_to log.user.username, user_path(log.user) %>
+  <% end %>
             <div class="card-body">
             <h5 class="card-title">Shift: <%= link_to log.shift, daily_log_path(log) %></td><h5>
                 <p class="card-text"><%= truncate(log.notes, length: 100) %>

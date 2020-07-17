@@ -17,7 +17,8 @@
               Daily Logs
             </a>
             <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-            <% if logged_in? && current_user.admin? %>
+
+            <% if logged_in? %>
               
               <%= link_to "Add Notes", new_daily_log_path, class: "dropdown-item" %>
             <% end %>

@@ -1,5 +1,6 @@
 class IndividualsController < ApplicationController
    before_action :require_admin, except: [:index, :show]
+   
   def new
     @individual = Individual.new
 
