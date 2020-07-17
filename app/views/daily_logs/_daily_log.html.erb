@@ -1,25 +1,36 @@
+<div class="container">
+  <% @daily_logs.each do |log| %>
+    <div class="row justify-content-md-center">
+    <div class="col-6 mt-4">
+    <div class="card text-center  mb-4 bg-white rounded">
 
-         <% @daily_logs.each do |log| %>
-           
-        by <%= log.user.username if log.user %>
+            by <%= log.user.username if log.user %>
+            <div class="card-body">
+            <h5 class="card-title">Shift: <%= link_to log.shift, daily_log_path(log) %></td><h5>
+                <p class="card-text"><%= truncate(log.notes, length: 100) %>
+                </p> 
+                <%= link_to "View",  daily_log_path(log), class: "btn btn-outline-dark" %>
+
+                <% if logged_in? && (log.user == current_user || current_user.admin?) %>
+
+                <%= link_to "Edit", edit_daily_log_path(log), class: "btn btn-outline-dark" %>
+      
+                <%= link_to "Delete", daily_log_path(log), class: "btn btn-outline-light btn-danger", method: :delete, data: {confirm: "Are you sure?"} %>
+                <% end %>
+                </div>
+                   
              
-  Shift: <%= link_to log.shift, daily_log_path(log) %></td>
-                     
-    <%= truncate(log.notes, length: 100) %>
-                     </p>
-                     
-    <%= link_to "View",  daily_log_path(log), class: "btn btn-primary" %>
-    <% if logged_in? && (log.user == current_user || current_user.admin?) %>
-   
-     <%= link_to "Edit", edit_daily_log_path(log), class: "btn btn-info" %>
-   
-    <%= link_to "Delete", daily_log_path(log), class: "btn btn-danger", method: :delete, data: {confirm: "Are you sure?"} %>
-                     <% end %>
-                   
-                   
                      <div class="card-footer text-muted">
-                       created date
-                     </div>
-             
-          <% end %> 
-   
+                       <small>Entered Logs <%= log.created_at %></small>
+                    </div>
+                     
+     
+                  
+       </div>
+       </div>
+      </div>                   
+  <% end %> 
+  </div>
+  
+
+

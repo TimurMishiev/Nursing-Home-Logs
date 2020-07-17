@@ -1,24 +1,42 @@
-<h1> Fill out Vitals Log for: </h1> 
-<p><%= @individual_vitals_log.individual.name %></p>
+<h1 class="text-center mt-4"> Fill out Vitals Log for: </h1> 
+<div class="container">
+  <div class="row justify-content-center">
+    <div class="col-10">
+         <%= @individual_vitals_log.individual.name %>
+   
+    
+          <%= form_for(@individual_vitals_log, class: "shadow p-3 mb-3 bg-light rounded") do |f| %>
+  
+          <div class="form-group row">
+            <%= f.label :temperature, class: "col-2 col-form-label text-dark" %>
+            <div class="col-10">  
+            <%= f.text_field :temperature %>
+            </div>
+          </div>  
+ 
+  
+          <div class="form-group row">
+            <%= f.label :bloodpressure, class: "col-2 col-form-label text-dark" %>
+            <div class="col-10">
+            <%= f.text_field :bloodpressure %>
+            </div>
+          </div> 
+  
+          <div class="form-group row">
+            <%= f.label :pulse, class: "col-2 col-form-label text-dark" %>
+            <div class="col-10">
+            <%= f.text_field :pulse %>
+            </div>
+          </div>
 
-<%= form_for(@individual_vitals_log) do |f| %>
-  </br>
-  <div>
-    <%= f.label :temperature %>
-    <%= f.text_field :temperature %>
-  </div>
-  <br>
-  <div>
-    <%= f.label :bloodpressure %>
-    <%= f.text_field :bloodpressure %>
-  </div>
-  <br>
-  <div>
-    <%= f.label :pulse %>
-    <%= f.text_field :pulse %>
-  </div>
-  <br>
-<%= f.hidden_field :individual_id %>
-<%= f.submit %>
+        
+            <%= f.hidden_field :individual_id %>
 
-<% end  %>
+            <div class="form-group row justify-content-center">
+            <%= f.submit "Enter Vitals", class: "btn btn-outline-success btn-lg" %>
+            </div>
+
+          <% end  %>
+      </div>    
+    </div>
+  </div>

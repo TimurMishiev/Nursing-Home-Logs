@@ -31,14 +31,16 @@
             Individuals
           </a>
           <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+
           <% if logged_in? && current_user.admin?  %>
-            
             <%= link_to "Add a new Individual", new_individual_path, class: "dropdown-item" %>
           <% end %>
 
+          <% if logged_in? %>
+              <%= link_to "View Vitals", individual_vitals_logs_path, class: "dropdown-item" %>
+          <% end %> 
+
             <%= link_to "View Individuals", individuals_path, class: "dropdown-item" %>
-            
-            
 
 
         </li>

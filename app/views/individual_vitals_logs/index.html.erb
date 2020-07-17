@@ -1,10 +1,31 @@
-<h1> Vital Logs </h1>
-<ul>
-<% @individual_vitals_logs.each do |v| %>
-  <li>
-  <%= v.temperature %> - 
-  <%= v.bloodpressure %> -
-  <%= v.pulse %> 
-  </li>
-<% end %>
-</ul>
+<h1 class="text-center ml-4 mt-4">Vitals Logs</h1>
+  <div class="container">
+    <% @individual_vitals_logs.each do |v| %>
+      <div class="row justify-content-md-center">
+        <div class="col-6 mt-4">
+          <div class="card text-center mb-4 bg-white rounded">
+            <div
+          class="card-body">
+              <h5 class="card-title">
+           Vitals for : <%= link_to v.individual_id, individual_individual_vitals_logs_path(v.individual_id) %></td></h5>
+  
+                <p class="card-text">
+                    <li>Temperature: <%= v.temperature %></li> 
+                    <li>B/P: <%= v.bloodpressure %></li> 
+                    <li>Pulse: <%= v.pulse %></li> 
+                </p>  
+                <%= link_to  v.individual_id, individual_individual_vitals_logs_path(v.individual_id),  class: "btn btn-outline-dark" %>
+                 
+
+                <div class="card-footer text-muted">
+                  <small>Entered <%= v.created_at %> </small>
+                </div>  
+            </div>
+          </div>
+        </div>        
+       </div>
+     <% end %>    
+   </div>
+ 
+
+ 
